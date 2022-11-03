@@ -1,4 +1,3 @@
-use std::error::Error;
 use std::fmt;
 use std::io;
 use std::num::ParseIntError;
@@ -54,12 +53,6 @@ impl ParseCuboidError {
 impl fmt::Display for ParseCuboidError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{}", self.details)
-    }
-}
-
-impl Error for ParseCuboidError {
-    fn description(&self) -> &str {
-        &self.details
     }
 }
 
