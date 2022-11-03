@@ -4,4 +4,4 @@ set -e
 
 day=$1
 
-rustc "$day.rs" && ( cat "$day.input" | "./$day" )
+rustc "day${day}.rs" && ( cat "${day}.input" | "./day${day}" )

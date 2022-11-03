@@ -58,7 +58,7 @@ impl fmt::Display for Cuboid {
     }
 }
 
-fn main() {
+pub fn main() {
     let mut paper_needed = 0;
     let mut ribbon_needed = 0;
     loop {
