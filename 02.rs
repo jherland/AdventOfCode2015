@@ -37,46 +37,17 @@ impl Cuboid {
     }
 }
 
-#[derive(Debug)]
-struct ParseCuboidError {
-    details: String,
-}
-
-impl ParseCuboidError {
-    fn new(msg: &str) -> ParseCuboidError {
-        ParseCuboidError {
-            details: msg.to_string(),
-        }
-    }
-}
-
-impl fmt::Display for ParseCuboidError {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}", self.details)
-    }
-}
-
-impl From<ParseIntError> for ParseCuboidError {
-    fn from(err: ParseIntError) -> Self {
-        ParseCuboidError::new(format!("{}", err).as_ref())
-    }
-}
-
 impl FromStr for Cuboid {
-    type Err = ParseCuboidError;
+    type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (l, rest) = s
-            .split_once('x')
-            .ok_or(ParseCuboidError::new("missing 1st 'x'"))?;
-        let (w, h) = rest
-            .split_once('x')
-            .ok_or(ParseCuboidError::new("missing 2nd 'x'"))?;
+        let (l, rest) = s.split_once('x').ok_or("missing 1st 'x'")?;
+        let (w, h) = rest.split_once('x').ok_or("missing 2nd 'x'")?;
 
         Ok(Cuboid {
-            l: l.parse()?,
-            w: w.parse()?,
-            h: h.parse()?,
+            l: l.parse().map_err(|e: ParseIntError| e.to_string())?,
+            w: w.parse().map_err(|e: ParseIntError| e.to_string())?,
+            h: h.parse().map_err(|e: ParseIntError| e.to_string())?,
         })
     }
 }
