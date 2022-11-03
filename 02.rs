@@ -40,18 +40,20 @@ impl Cuboid {
 
 #[derive(Debug)]
 struct ParseCuboidError {
-    details: String
+    details: String,
 }
 
 impl ParseCuboidError {
     fn new(msg: &str) -> ParseCuboidError {
-        ParseCuboidError{details: msg.to_string()}
+        ParseCuboidError {
+            details: msg.to_string(),
+        }
     }
 }
 
 impl fmt::Display for ParseCuboidError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f,"{}",self.details)
+        write!(f, "{}", self.details)
     }
 }
 
@@ -71,8 +73,12 @@ impl FromStr for Cuboid {
     type Err = ParseCuboidError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (l, rest) = s.split_once('x').ok_or(ParseCuboidError::new("missing 1st 'x'"))?;
-        let (w, h) = rest.split_once('x').ok_or(ParseCuboidError::new("missing 2nd 'x'"))?;
+        let (l, rest) = s
+            .split_once('x')
+            .ok_or(ParseCuboidError::new("missing 1st 'x'"))?;
+        let (w, h) = rest
+            .split_once('x')
+            .ok_or(ParseCuboidError::new("missing 2nd 'x'"))?;
 
         Ok(Cuboid {
             l: l.parse()?,
@@ -103,7 +109,7 @@ fn main() {
                 // println!("{b}");
                 paper_needed += b.paper_needed();
                 ribbon_needed += b.ribbon_needed();
-            },
+            }
             _ => break,
         }
     }

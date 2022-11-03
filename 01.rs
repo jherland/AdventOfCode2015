@@ -27,7 +27,9 @@ fn main() {
             ')' => floor -= 1,
             _ => break,
         };
-        if floor < 0 { break };
+        if floor < 0 {
+            break;
+        };
         pos += 1;
     }
     println!("{pos}");
