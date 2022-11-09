@@ -9,5 +9,9 @@ edition = "2021"
 anyhow = "1.0.66"
 
 [[bin]]
-name = "main"
-path = "main.rs"
+name = "day01"
+path = "day01.rs"
+
+[[bin]]
+name = "day02"
+path = "day02.rs"
