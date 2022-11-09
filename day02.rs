@@ -1,7 +1,8 @@
 use std::fmt;
 use std::io;
-use std::num::ParseIntError;
 use std::str::FromStr;
+
+use anyhow::{anyhow, Error, Result};
 
 struct Cuboid {
     l: u32,
@@ -38,16 +39,16 @@ impl Cuboid {
 }
 
 impl FromStr for Cuboid {
-    type Err = String;
+    type Err = Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (l, rest) = s.split_once('x').ok_or("missing 1st 'x'")?;
-        let (w, h) = rest.split_once('x').ok_or("missing 2nd 'x'")?;
+        let (l, rest) = s.split_once('x').ok_or(anyhow!("missing 1st 'x'"))?;
+        let (w, h) = rest.split_once('x').ok_or(anyhow!("missing 2nd 'x'"))?;
 
         Ok(Cuboid {
-            l: l.parse().map_err(|e: ParseIntError| e.to_string())?,
-            w: w.parse().map_err(|e: ParseIntError| e.to_string())?,
-            h: h.parse().map_err(|e: ParseIntError| e.to_string())?,
+            l: l.parse()?,
+            w: w.parse()?,
+            h: h.parse()?,
         })
     }
 }
