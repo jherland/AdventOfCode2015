@@ -78,12 +78,16 @@ fn parse(line: &str) -> (Instruction, Area) {
     let upper_left = words[2].parse::<Point>().unwrap();
     assert!(words[1] == "through");
     let bottom_right = words[0].parse::<Point>().unwrap();
-    let area = Area::new(upper_left, bottom_right + Point {x: 1, y: 1});
+    let area = Area::new(upper_left, bottom_right + Point { x: 1, y: 1 });
     (instruction, area)
 }
 
 pub fn main() {
-    let input: Vec<_> = io::stdin().lines().map(Result::unwrap).map(|s| parse(&s)).collect();
+    let input: Vec<_> = io::stdin()
+        .lines()
+        .map(Result::unwrap)
+        .map(|s| parse(&s))
+        .collect();
 
     // part 1
     let mut bitmap = Array2D::filled_with(0u8, 1000, 1000);
@@ -113,7 +117,13 @@ pub fn main() {
             for y in area.tl.y..area.br.y {
                 bitmap[(x, y)] = match instruction {
                     TurnOn => bitmap[(x, y)] + 1,
-                    TurnOff => if bitmap[(x, y)] > 0 { bitmap[(x, y)] - 1 } else { 0 },
+                    TurnOff => {
+                        if bitmap[(x, y)] > 0 {
+                            bitmap[(x, y)] - 1
+                        } else {
+                            0
+                        }
+                    }
                     Toggle => bitmap[(x, y)] + 2,
                 }
             }

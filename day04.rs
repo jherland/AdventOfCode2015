@@ -17,7 +17,9 @@ fn find_md5_prefix(base_md5: Md5, prefix: &str) -> i32 {
 
 pub fn main() {
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("failed to read stdin!");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("failed to read stdin!");
     let mut base_md5 = Md5::new();
     base_md5.input_str(&input);
 

@@ -24,7 +24,6 @@ fn has_no_special_substrings(line: &str) -> bool {
     true
 }
 
-
 fn has_repeated_letter_pair(line: &str) -> bool {
     for i in 0..(line.as_bytes().len() - 2) {
         if line[i + 2..].contains(&line[i..i + 2]) {
@@ -66,8 +65,8 @@ pub fn main() {
             .read_line(&mut line)
             .expect("Failed to read line");
         let line = line.trim();
-        if line.len() == 0 { // stop on first empty line
-            break;
+        if line.len() == 0 {
+            break; // stop on first empty line
         }
         if part1_predicates.iter().all(|pred| pred(line)) {
             part1 += 1;
