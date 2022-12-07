@@ -51,7 +51,7 @@ impl FromStr for Point {
     type Err = Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (x, y) = s.split_once(',').ok_or(anyhow!("missing','"))?;
+        let (x, y) = s.split_once(',').ok_or_else(|| anyhow!("missing','"))?;
         Ok(Point {
             x: x.parse()?,
             y: y.parse()?,
@@ -73,7 +73,7 @@ impl Area {
 }
 
 fn parse(line: &str) -> (Instruction, Area) {
-    let words: Vec<&str> = line.rsplitn(4, " ").collect();
+    let words: Vec<&str> = line.rsplitn(4, ' ').collect();
     let instruction = words[3].parse::<Instruction>().unwrap();
     let upper_left = words[2].parse::<Point>().unwrap();
     assert!(words[1] == "through");

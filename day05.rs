@@ -65,7 +65,7 @@ pub fn main() {
             .read_line(&mut line)
             .expect("Failed to read line");
         let line = line.trim();
-        if line.len() == 0 {
+        if line.is_empty() {
             break; // stop on first empty line
         }
         if part1_predicates.iter().all(|pred| pred(line)) {

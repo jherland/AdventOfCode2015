@@ -29,7 +29,7 @@ fn santa_delivery(num_santas: u8, instructions: &str) -> usize {
         visited.insert(santa);
         santas.push_back(santa);
     }
-    return visited.len();
+    visited.len()
 }
 
 fn main() {

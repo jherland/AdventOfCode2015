@@ -6,7 +6,7 @@ use crypto::md5::Md5;
 fn find_md5_prefix(base_md5: Md5, prefix: &str) -> i32 {
     let mut n = 1;
     loop {
-        let mut md5 = base_md5.clone();
+        let mut md5 = base_md5;
         md5.input_str(&n.to_string());
         if md5.result_str()[0..prefix.len()].eq(prefix) {
             return n;
