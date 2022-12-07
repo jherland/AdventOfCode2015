@@ -38,11 +38,6 @@ fn main() {
         .read_line(&mut input)
         .expect("Failed to read line");
 
-    // part 1
-    let num_visited = santa_delivery(1, input.trim());
-    println!("{num_visited}");
-
-    // part 2
-    let num_visited = santa_delivery(2, input.trim());
-    println!("{num_visited}");
+    println!("Part 1: {}", santa_delivery(1, input.trim()));
+    println!("Part 2: {}", santa_delivery(2, input.trim()));
 }

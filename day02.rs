@@ -78,9 +78,6 @@ pub fn main() {
             _ => break,
         }
     }
-    // part 1
-    println!("{paper_needed}");
-
-    // part 2
-    println!("{ribbon_needed}");
+    println!("Part 1: {paper_needed}");
+    println!("Part 2: {ribbon_needed}");
 }

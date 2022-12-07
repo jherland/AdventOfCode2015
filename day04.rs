@@ -22,12 +22,6 @@ pub fn main() {
         .expect("failed to read stdin!");
     let mut base_md5 = Md5::new();
     base_md5.input_str(&input);
-
-    // part 1
-    let result = find_md5_prefix(base_md5, "00000");
-    println!("{result}");
-
-    // part 1
-    let result = find_md5_prefix(base_md5, "000000");
-    println!("{result}");
+    println!("Part 1: {}", find_md5_prefix(base_md5, "00000"));
+    println!("Part 2: {}", find_md5_prefix(base_md5, "000000"));
 }

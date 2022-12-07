@@ -16,7 +16,7 @@ pub fn main() {
             _ => break,
         }
     }
-    println!("{floor}");
+    println!("Part 1: {floor}");
 
     // part 2
     let mut pos = 1;
@@ -32,5 +32,5 @@ pub fn main() {
         };
         pos += 1;
     }
-    println!("{pos}");
+    println!("Part 2: {pos}");
 }
