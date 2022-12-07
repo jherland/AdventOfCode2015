@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.66"
+array2d = "0.2.1"
 rust-crypto = "0.2.36"
 
 [[bin]]
