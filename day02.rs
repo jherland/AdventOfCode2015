@@ -42,8 +42,12 @@ impl FromStr for Cuboid {
     type Err = Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (l, rest) = s.split_once('x').ok_or_else(|| anyhow!("missing 1st 'x'"))?;
-        let (w, h) = rest.split_once('x').ok_or_else(|| anyhow!("missing 2nd 'x'"))?;
+        let (l, rest) = s
+            .split_once('x')
+            .ok_or_else(|| anyhow!("missing 1st 'x'"))?;
+        let (w, h) = rest
+            .split_once('x')
+            .ok_or_else(|| anyhow!("missing 2nd 'x'"))?;
 
         Ok(Cuboid {
             l: l.parse()?,
