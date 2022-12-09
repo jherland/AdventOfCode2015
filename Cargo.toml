@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.66"
 array2d = "0.2.1"
+itertools = "0.10.5"
 rust-crypto = "0.2.36"
 
 [[bin]]
@@ -41,3 +42,7 @@ path = "day07.rs"
 [[bin]]
 name = "day08"
 path = "day08.rs"
+
+[[bin]]
+name = "day09"
+path = "day09.rs"
