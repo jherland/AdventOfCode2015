@@ -40,14 +40,11 @@ impl DistMap {
     fn get(&self, a: &str, b: &str) -> Option<usize> {
         match self.dmap.get(a) {
             None => None,
-            Some(a_conns) => match a_conns.get(b) {
-                None => None,
-                Some(dist) => Some(*dist),
-            },
+            Some(a_conns) => a_conns.get(b).copied(),
         }
     }
 
-    fn travel_cost(&self, route: &Vec<&String>) -> Option<usize> {
+    fn travel_cost(&self, route: &[&String]) -> Option<usize> {
         route
             .windows(2)
             .map(|cities| match cities {
