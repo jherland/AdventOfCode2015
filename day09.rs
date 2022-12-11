@@ -55,7 +55,7 @@ impl DistMap {
     }
 }
 
-pub fn main() {
+fn main() {
     let dmap = DistMap::parse(io::stdin().lines().map(Result::unwrap));
     let cities: HashSet<String> = dmap.dmap.keys().cloned().collect();
 

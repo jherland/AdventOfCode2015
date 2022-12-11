@@ -1,6 +1,6 @@
 use std::io;
 
-pub fn main() {
+fn main() {
     let lines: Vec<_> = io::stdin().lines().map(Result::unwrap).collect();
     let mut escape = 0;
     let mut total = 0;

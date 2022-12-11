@@ -74,7 +74,7 @@ impl Password {
     }
 }
 
-pub fn main() {
+fn main() {
     let pwd = Password::parse(io::stdin().bytes().map(Result::unwrap));
 
     let mut pwdgen = pwd.into_iter().filter(|pw| pw.is_valid());

@@ -108,7 +108,7 @@ fn resolve_all(parts: &HashMap<String, Unresolved>) -> HashMap<String, u16> {
     resolved
 }
 
-pub fn main() {
+fn main() {
     let mut parts: HashMap<String, Unresolved> = HashMap::new();
     for line in io::stdin().lines().map(Result::unwrap) {
         let mut words: Vec<String> = line.split(' ').map(|w| w.to_owned()).collect();

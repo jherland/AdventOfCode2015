@@ -16,7 +16,7 @@ fn look_and_say(mut input: VecDeque<u8>) -> VecDeque<u8> {
     ret
 }
 
-pub fn main() {
+fn main() {
     let mut digits: VecDeque<u8> = io::stdin()
         .bytes()
         .map(Result::unwrap)

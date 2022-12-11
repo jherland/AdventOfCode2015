@@ -82,7 +82,7 @@ fn parse(line: &str) -> (Instruction, Area) {
     (instruction, area)
 }
 
-pub fn main() {
+fn main() {
     let input: Vec<_> = io::stdin()
         .lines()
         .map(Result::unwrap)

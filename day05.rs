@@ -46,7 +46,7 @@ fn has_repeated_letter_with_one_in_between(line: &str) -> bool {
     false
 }
 
-pub fn main() {
+fn main() {
     let part1_predicates = [
         at_least_three_vowels,
         has_repeated_letter,

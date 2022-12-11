@@ -1,6 +1,6 @@
 use std::io;
 
-pub fn main() {
+fn main() {
     let mut input = String::new();
 
     io::stdin()
