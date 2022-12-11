@@ -9,6 +9,7 @@ edition = "2021"
 anyhow = "1.0.66"
 array2d = "0.2.1"
 itertools = "0.10.5"
+json = "0.12.4"
 rust-crypto = "0.2.36"
 
 [[bin]]
@@ -54,3 +55,7 @@ path = "day10.rs"
 [[bin]]
 name = "day11"
 path = "day11.rs"
+
+[[bin]]
+name = "day12"
+path = "day12.rs"
